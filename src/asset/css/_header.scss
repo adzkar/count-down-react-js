@@ -1,0 +1,54 @@
+header {
+
+    background-image: url('../img/bg.jpg');
+    background-color: $belize-hole;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+
+    #cover {
+      height: 100vh;
+      background-color: rgba(149,165,166,0.45);
+    } // cover
+
+    a {
+      text-decoration: none;
+    }
+
+    #top-header {
+
+      padding-top: 10px;
+
+      #logo {
+        img {
+          width: 25%;
+        }
+        h2 {
+          margin-left: 20px;
+        }
+      } // logo
+
+      #menu {
+        ul {
+          padding-top: 20px;
+          float: right;
+          font-weight: bold;
+          font-size: 19px;
+          list-style: none;
+          li {
+            display: inline-block;
+
+            a {
+              padding: 10px;
+            }
+            a:hover {
+              opacity: .7;
+            }
+
+          } // li
+        } // ul
+      } // menu
+
+    } // top header
+} // header
