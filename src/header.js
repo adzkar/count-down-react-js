@@ -2,9 +2,38 @@ import React, {Component} from 'react'
 // asset
 import gambar from './asset/img/logo.svg'
 
-// console.log(gambar)
-
 class Header extends Component {
+  constructor(props) {
+    super(props)
+    const currentTime = new Date()
+    this.state = {
+      hours: currentTime.getHours(),
+      minutes: currentTime.getMinutes(),
+      seconds: currentTime.getSeconds(),
+      ampm: currentTime.getHours() >= 12 ? 'pm' : 'am'
+    }
+
+  }
+
+  setTimer() {
+    setTimeout(this.updateClock.bind(this), 1000)
+  }
+
+  updateClock() {
+    const currentTime = new Date()
+    this.setState(
+      {
+        hours: currentTime.getHours(),
+        minutes: currentTime.getMinutes(),
+        seconds: currentTime.getSeconds(),
+        ampm: currentTime.getHours() >= 12 ? 'pm' : 'am'
+      }
+    )
+    this.setTimer()
+  }
+
+
+
   render() {
     return(
       <header>
@@ -14,10 +43,13 @@ class Header extends Component {
               <div className="row">
                 <Logo/>
                 <Menu/>
+              </div>{/* row */}
+              <div className="row">
+                <HeaderContent/>
               </div>
-            </div>
-          </div>
-        </div>
+            </div>{/* container */}
+          </div>{/* top header */}
+        </div>{/* cover */}
       </header>
     )
   }
@@ -48,6 +80,14 @@ const Menu = () => (
         <a href="#">Donate</a>
       </li>
     </ul>
+  </div>
+)
+
+const HeaderContent = () => (
+  <div id="header-content" className="row">
+    <div className="col-12">
+      <h2>This site will be launch soon</h2>
+    </div>
   </div>
 )
 

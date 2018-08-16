@@ -191,3 +191,10 @@ header {
           padding: 10px; }
         header #top-header #menu ul li a:hover {
           opacity: .7; }
+  header #header-content h2 {
+    margin-top: 150px;
+    font-size: 2.4em;
+    font-weight: bolder;
+    text-align: center;
+    display: block;
+    text-transform: capitalize; }

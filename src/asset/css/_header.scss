@@ -51,4 +51,20 @@ header {
       } // menu
 
     } // top header
+
+
+    #header-content {
+      h2 {
+        margin-top: 150px;
+        font-size: 2.4em;
+        font-weight: bolder;
+        text-align: center;
+        display: block;
+        text-transform: capitalize;
+      }
+    }
+
+
+
+
 } // header
