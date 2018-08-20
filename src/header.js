@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 // asset
 import gambar from './asset/img/logo.svg'
+import contruction from './asset/img/contruction.svg'
 
 class Header extends Component {
   constructor(props) {
@@ -15,24 +16,21 @@ class Header extends Component {
 
   }
 
-  setTimer() {
-    setTimeout(this.updateClock.bind(this), 1000)
+  setTimer = () => {
+    setTimeout(this.updateClock(), 1000)
   }
 
-  updateClock() {
+  updateClock = () => {
     const currentTime = new Date()
     this.setState(
       {
         hours: currentTime.getHours(),
         minutes: currentTime.getMinutes(),
         seconds: currentTime.getSeconds(),
-        ampm: currentTime.getHours() >= 12 ? 'pm' : 'am'
+        ampm: currentTime.getHours() >= 12 ? 'am':'pm'
       }
     )
-    this.setTimer()
   }
-
-
 
   render() {
     return(
@@ -45,7 +43,8 @@ class Header extends Component {
                 <Menu/>
               </div>{/* row */}
               <div className="row">
-                <HeaderContent/>
+                <h4 onChange={this.setTimer()}>{this.state.seconds}</h4>
+                {/* <HeaderContent content={this.state.seconds} event={this.setTimer()}/> */}
               </div>
             </div>{/* container */}
           </div>{/* top header */}
@@ -83,10 +82,16 @@ const Menu = () => (
   </div>
 )
 
-const HeaderContent = () => (
+const HeaderContent = ({content},{event}) => (
   <div id="header-content" className="row">
     <div className="col-12">
-      <h2>This site will be launch soon</h2>
+      <div className="content">
+        <img src={contruction} alt=""/>
+        <h2>This site will be launch soon</h2>
+        <div id="count-down">
+          <h3 onChange={event}>{content}</h3>
+        </div>
+      </div>
     </div>
   </div>
 )
